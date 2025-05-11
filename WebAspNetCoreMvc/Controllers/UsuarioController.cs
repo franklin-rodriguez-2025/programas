@@ -6,16 +6,25 @@ namespace MvcMovie.Controllers;
 
 public class UsuarioController : Controller
 {
+    //
     // 
     // GET: /Usuario/
     public string Index()
     {
-        return "Pagina Web de inicio";
+        return "ñá ñé ñí ñó  ñú [] {} ()   Página inicial para usuarios.";
     }
+    //
     //
     // GET: /Usuario/Configuraciones/
     public string Configuraciones()
     {
-        return "Pagina Web de configuraciones";
+        return "Ajustes de información de usuarios";
+    }
+    //
+    //
+    // GET: /Usuario/Consulta/
+    public string Consulta(int id)
+    {
+        return "ñá ñé ñí ñó  ñú [] {} (). Usuario con id=" + id;
     }
 }
