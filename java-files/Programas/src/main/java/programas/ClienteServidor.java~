@@ -1,0 +1,18 @@
+
+        // Ejecutar el servidor en un hilo separado
+        new Thread(() -> {
+            Servidor servidor = new Servidor();
+            servidor.iniciar(1234);
+        }).start();
+
+        // Esperar un momento para asegurarse de que el servidor está listo
+        try {
+            Thread.sleep(1000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+        // Ejecutar el cliente
+        Cliente cliente = new Cliente();
+        cliente.conectar("localhost", 1234);
+
