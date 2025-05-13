@@ -1,70 +1,86 @@
 
-using Microsoft.OpenApi.Models;
+    using Microsoft.EntityFrameworkCore;
+    using Microsoft.OpenApi.Models;
+    using WebAspNetCoreMvc.Contexto;
 
 
-//
-// Kind of project:
-// ASP.NET Core Web App (Model-View-Controller) + API
-// dotnet new mvc -n WebAspNetCoreMvc -f net9.0
-// fullstack project => WebApp And API 
-//
+    //
+    // Kind of project:
+    // ASP.NET Core Web App (Model-View-Controller) + API
+    // dotnet new mvc -n WebAspNetCoreMvc -f net9.0
+    // fullstack project => WebApp And API 
+    //
 
-var builder = WebApplication.CreateBuilder(args);
+    var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
-builder.Services.AddRazorPages();
-builder.Services.AddControllersWithViews();
-builder.Services.AddControllers(); // **
+    // Add services to the container.
+    builder.Services.AddRazorPages();
+    builder.Services.AddControllersWithViews();
+    builder.Services.AddControllers(); // **
 
-builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen(c =>
-{
-     c.SwaggerDoc(
-        "v1",
-        new OpenApiInfo {
-            Title = "WebApp And API - ASP.NET CORE MVC",
-            Description = "WebApp And API With ASP.NET CORE MVC",
-            Version = "v1"
+    builder.Services.AddEndpointsApiExplorer();
+    builder.Services.AddSwaggerGen(c =>
+    {
+        c.SwaggerDoc(
+            "v1",
+            new OpenApiInfo {
+                Title = "WebApp And API - ASP.NET CORE MVC",
+                Description = "WebApp And API With ASP.NET CORE MVC",
+                Version = "v1"
+            }
+        );
+    });
+
+    // OpenAPI at https://aka.ms/aspnet/openapi
+    // builder.Services.AddOpenApi();
+
+
+
+    // Conexion MySQL
+    builder.Services.AddDbContext<OurDbContext>(
+        options => {
+            var connectionString = builder.Configuration.GetConnectionString("MySqlConnection");
+            options.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString));
         }
     );
-});
 
-// OpenAPI at https://aka.ms/aspnet/openapi
-// builder.Services.AddOpenApi();
 
-var app = builder.Build();
 
-// Configure the HTTP request pipeline.
-if (!app.Environment.IsDevelopment())
-{
-    app.UseExceptionHandler("/Home/Error");
-    // The default HSTS value is 9999999999930 days.
-    // You may want to change this for production scenarios,
-    // see https://aka.ms/aspnetcore-hsts.
-    app.UseHsts();
-}
-if (app.Environment.IsDevelopment())
-{
-    // app.MapOpenApi(); // OPENAPI 
 
-    app.UseSwagger();
-    app.UseSwaggerUI(c =>
+
+    var app = builder.Build();
+
+    // Configure the HTTP request pipeline.
+    if (!app.Environment.IsDevelopment())
     {
-        c.SwaggerEndpoint("/swagger/v1/swagger.json", "WebApp And API With ASP.NET CORE MVC");
-    });
-}
+        app.UseExceptionHandler("/Home/Error");
+        // The default HSTS value is 9999999999930 days.
+        // You may want to change this for production scenarios,
+        // see https://aka.ms/aspnetcore-hsts.
+        app.UseHsts();
+    }
+    if (app.Environment.IsDevelopment())
+    {
+        // app.MapOpenApi(); // OPENAPI 
 
-app.UseHttpsRedirection();
-app.UseAuthorization();
-app.UseRouting();
-app.MapStaticAssets();
-app.MapControllerRoute(
-    name: "default",
-    pattern: "{controller=Home}/{action=Index}/{id?}"
-).WithStaticAssets();
-app.MapControllers(); // **
+        app.UseSwagger();
+        app.UseSwaggerUI(c =>
+        {
+            c.SwaggerEndpoint("/swagger/v1/swagger.json", "WebApp And API With ASP.NET CORE MVC");
+        });
+    }
 
-// Minimal API
-app.MapGet("/isup", () => "WebApp Web ASP.NET CORE MVC: Is running !");
+    app.UseHttpsRedirection();
+    app.UseAuthorization();
+    app.UseRouting();
+    app.MapStaticAssets();
+    app.MapControllerRoute(
+        name: "default",
+        pattern: "{controller=Home}/{action=Index}/{id?}"
+    ).WithStaticAssets();
+    app.MapControllers(); // **
 
-app.Run();
+    // Minimal API
+    app.MapGet("/isup", () => "WebApp Web ASP.NET CORE MVC: Is running !");
+
+    app.Run();
