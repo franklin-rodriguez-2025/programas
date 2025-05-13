@@ -12,6 +12,7 @@ alias delete="rm -f "
 alias tarfile='tar -cJf "${fechayhora}.tar.xz" $1'
 alias gs="git status"
 alias gol="git log --oneline -n 9"
+alias add="git add -A"
 
 
 

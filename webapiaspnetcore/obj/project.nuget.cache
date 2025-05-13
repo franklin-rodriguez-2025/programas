@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "odTWx68izcM=",
+  "success": true,
+  "projectFilePath": "/Users/franklinrodriguez/Downloads/files-programas/webapiaspnetcore/webapiaspnetcore.csproj",
+  "expectedPackageFiles": [
+    "/Users/franklinrodriguez/.nuget/packages/microsoft.aspnetcore.openapi/9.0.4/microsoft.aspnetcore.openapi.9.0.4.nupkg.sha512",
+    "/Users/franklinrodriguez/.nuget/packages/microsoft.openapi/1.6.17/microsoft.openapi.1.6.17.nupkg.sha512"
+  ],
+  "logs": []
+}
