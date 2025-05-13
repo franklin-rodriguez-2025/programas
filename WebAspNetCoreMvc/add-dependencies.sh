@@ -13,4 +13,8 @@ dotnet add package Pomelo.EntityFrameworkCore.MySql
 dotnet add package Pomelo.EntityFrameworkCore.MySql
 
 
+dotnet add package Microsoft.EntityFrameworkCore.Relational --version 8.0.14
+
+
 exit 0;
+
