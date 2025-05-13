@@ -20,18 +20,17 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(c =>
 {
      c.SwaggerDoc(
-        "v1.0.0", 
+        "v1",
         new OpenApiInfo {
             Title = "WebApp And API - ASP.NET CORE MVC",
             Description = "WebApp And API With ASP.NET CORE MVC",
-            Version = "Version 1.0.0"
+            Version = "v1"
         }
     );
 });
 
 // OpenAPI at https://aka.ms/aspnet/openapi
 // builder.Services.AddOpenApi();
-
 
 var app = builder.Build();
 
@@ -46,7 +45,6 @@ if (!app.Environment.IsDevelopment())
 }
 if (app.Environment.IsDevelopment())
 {
-
     // app.MapOpenApi(); // OPENAPI 
 
     app.UseSwagger();

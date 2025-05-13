@@ -2,7 +2,9 @@
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Mvc;
+using NuGet.Protocol;
 using WebAspNetCoreMvc.Contexto;
+using WebAspNetCoreMvc.Models;
 
 namespace WebAspNetCoreMvc.Services;
 
@@ -21,27 +23,30 @@ public class UsuarioService
         _context = context;
     }
 
-    public string GetUsuario()
-    {
-        return "UsuarioService - GetUsuario";
-    }
 
     public string GetUsuario(int id)
     {
-        return $"UsuarioService - GetUsuario {id}";
+        return $"UsuarioService[GetUsuario(id)]: {id}";
     }
 
 
-    public async Task<IActionResult> GetUsuarioAsync(int id)
+    public async Task<UsuarioModel?> GetUsuarioAsync(int id)
     {
-        var usuario = await _context.ContextoUsuario.FindAsync(id);
-        if ( usuario == null )
+        try
         {
-            _logger.LogWarning($"Usuario con id = {id} no existe.");
-            return new NotFoundResult();
+            var usuario = await _context.ContextoUsuario.FindAsync(id);
+            if ( usuario == null )
+            {
+                _logger.LogWarning($"UsuarioService[GetUsuarioAsync(id)]: Usuario con id = {id} no existe.");
+                return null;
+            }
+            return usuario;
         }
-        return new OkObjectResult(usuario);
+        catch (Exception ex)
+        {
+            _logger.LogError($"UsuarioService[GetUsuarioAsync(id)]: Error al obtener el usuario con id = {id}. Error: {ex.Message}");
+            return null;
+        }
     }
-
 
 }

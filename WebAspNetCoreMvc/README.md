@@ -1,6 +1,11 @@
 
 El conocimiento, aquello que uno aprende, es para uno !
 
+
+Kind of project:
+	dotnet new mvc -f net9.0 -n WebAspNetCoreMvc
+
+
 Javascript and more I'v learned:
 https://grasshopper.com/
 https://www.codecademy.com/

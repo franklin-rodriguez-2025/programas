@@ -1,11 +1,13 @@
 
 using Microsoft.AspNetCore.Mvc;
+using WebAspNetCoreMvc.Models;
 using WebAspNetCoreMvc.Services;
 
 namespace WebAspNetCoreMvc.ApiControllers;
 
-[Route("api/[controller]")]
+
 [ApiController]
+[Route("api/[controller]")]
 public class UsuarioController : ControllerBase
 {
     private readonly ILogger<UsuarioController> _logger;
@@ -25,6 +27,10 @@ public class UsuarioController : ControllerBase
 
     // GET: api/Usuario/5
     [HttpGet("{id}")]
+    [ProducesResponseType(StatusCodes.Status404NotFound)]
+    [ProducesResponseType(typeof(UsuarioModel), StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+    [Produces("application/json")]
     public async Task<IActionResult> Get(int id)
     {
         var infoUsuario = await _usuarioService.GetUsuarioAsync(id);
