@@ -8,7 +8,7 @@ using WebAspNetCoreMvc.Models;
 
 namespace WebAspNetCoreMvc.Services;
 
-public class UsuarioService
+public class UsuarioService : IUsuarioService
 {
     private readonly ILogger<UsuarioService> _logger;
 

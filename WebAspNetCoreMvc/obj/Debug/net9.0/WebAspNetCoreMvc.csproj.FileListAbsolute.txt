@@ -439,3 +439,6 @@
 /Users/franklinrodriguez/Downloads/files-programas/WebAspNetCoreMvc/obj/Debug/net9.0/WebAspNetCoreMvc.MvcApplicationPartsAssemblyInfo.cs
 /Users/franklinrodriguez/Downloads/files-programas/WebAspNetCoreMvc/obj/Debug/net9.0/compressed/i4qre4g6nt-6ipgoystd1.gz
 /Users/franklinrodriguez/Downloads/files-programas/WebAspNetCoreMvc/obj/Debug/net9.0/WebAspNe.6A9DE254.Up2Date
+/Users/franklinrodriguez/Downloads/files-programas/WebAspNetCoreMvc/bin/Debug/net9.0/MySqlConnector.dll
+/Users/franklinrodriguez/Downloads/files-programas/WebAspNetCoreMvc/bin/Debug/net9.0/Pomelo.EntityFrameworkCore.MySql.dll
+/Users/franklinrodriguez/Downloads/files-programas/WebAspNetCoreMvc/bin/Debug/net9.0/System.Text.Json.dll

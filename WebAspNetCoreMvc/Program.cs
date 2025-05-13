@@ -2,21 +2,24 @@
     using Microsoft.EntityFrameworkCore;
     using Microsoft.OpenApi.Models;
     using WebAspNetCoreMvc.Contexto;
+using WebAspNetCoreMvc.Services;
 
 
-    //
-    // Kind of project:
-    // ASP.NET Core Web App (Model-View-Controller) + API
-    // dotnet new mvc -n WebAspNetCoreMvc -f net9.0
-    // fullstack project => WebApp And API 
-    //
+//
+// Kind of project:
+// ASP.NET Core Web App (Model-View-Controller) + API
+// dotnet new mvc -n WebAspNetCoreMvc -f net9.0
+// fullstack project => WebApp And API 
+//
 
-    var builder = WebApplication.CreateBuilder(args);
+var builder = WebApplication.CreateBuilder(args);
 
     // Add services to the container.
     builder.Services.AddRazorPages();
     builder.Services.AddControllersWithViews();
     builder.Services.AddControllers(); // **
+
+    builder.Services.AddScoped<IUsuarioService, UsuarioService>();
 
     builder.Services.AddEndpointsApiExplorer();
     builder.Services.AddSwaggerGen(c =>
