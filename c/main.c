@@ -11,6 +11,5 @@ int main(int argc, char **argv)
 	ans = tempSum(am,ab);
 	printf("ANS: %d\n", ans);
 	*/
-	
 	return EXIT_SUCCESS;
 }

@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("WebAspNetCoreMvc")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+ecbadba876b1102069aee73b15ea844717436dee")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+8085915ac1bf514ca2a0dea041212400ddeec936")]
 [assembly: System.Reflection.AssemblyProductAttribute("WebAspNetCoreMvc")]
 [assembly: System.Reflection.AssemblyTitleAttribute("WebAspNetCoreMvc")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

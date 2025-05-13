@@ -1,0 +1,15 @@
+/Users/franklinrodriguez/Downloads/files-programas/dotnetConsole/bin/Debug/net9.0/dotnetConsole
+/Users/franklinrodriguez/Downloads/files-programas/dotnetConsole/bin/Debug/net9.0/dotnetConsole.deps.json
+/Users/franklinrodriguez/Downloads/files-programas/dotnetConsole/bin/Debug/net9.0/dotnetConsole.runtimeconfig.json
+/Users/franklinrodriguez/Downloads/files-programas/dotnetConsole/bin/Debug/net9.0/dotnetConsole.dll
+/Users/franklinrodriguez/Downloads/files-programas/dotnetConsole/bin/Debug/net9.0/dotnetConsole.pdb
+/Users/franklinrodriguez/Downloads/files-programas/dotnetConsole/obj/Debug/net9.0/dotnetConsole.GeneratedMSBuildEditorConfig.editorconfig
+/Users/franklinrodriguez/Downloads/files-programas/dotnetConsole/obj/Debug/net9.0/dotnetConsole.AssemblyInfoInputs.cache
+/Users/franklinrodriguez/Downloads/files-programas/dotnetConsole/obj/Debug/net9.0/dotnetConsole.AssemblyInfo.cs
+/Users/franklinrodriguez/Downloads/files-programas/dotnetConsole/obj/Debug/net9.0/dotnetConsole.csproj.CoreCompileInputs.cache
+/Users/franklinrodriguez/Downloads/files-programas/dotnetConsole/obj/Debug/net9.0/dotnetConsole.sourcelink.json
+/Users/franklinrodriguez/Downloads/files-programas/dotnetConsole/obj/Debug/net9.0/dotnetConsole.dll
+/Users/franklinrodriguez/Downloads/files-programas/dotnetConsole/obj/Debug/net9.0/refint/dotnetConsole.dll
+/Users/franklinrodriguez/Downloads/files-programas/dotnetConsole/obj/Debug/net9.0/dotnetConsole.pdb
+/Users/franklinrodriguez/Downloads/files-programas/dotnetConsole/obj/Debug/net9.0/dotnetConsole.genruntimeconfig.cache
+/Users/franklinrodriguez/Downloads/files-programas/dotnetConsole/obj/Debug/net9.0/ref/dotnetConsole.dll

@@ -62,3 +62,4 @@ const mainPage = () => {
     main.appendChild( fila1 );
 }
 viewBtnShowMainPage();
+

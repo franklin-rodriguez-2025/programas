@@ -1,0 +1,29 @@
+﻿@{
+    ViewData["Title"] = "Consulta de Usuarios";
+
+    var max = @ViewData["id"];
+    if (max == null)
+    {
+        max = 0;
+    }
+    else
+    {
+        max = (int) @ViewData["id"]!;
+    }
+}
+<div class="text-center">
+    <h1 class="display-4">@ViewData["Title"]</h1>
+    <div>
+        Usuario Seleccionado: @ViewData["id"]
+    </div>
+</div>
+
+<div>
+    <h1>Usuarios Registrados:</h1>
+    <div>
+        @for( int i = 0; i < (int)@ViewData["id"]!; i++ )
+        {
+            <li><a href="">Item @i</a></li>
+        }
+    </div>
+</div>

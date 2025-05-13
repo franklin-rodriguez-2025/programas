@@ -9,17 +9,27 @@ public class UsuarioController : Controller
     //
     // 
     // GET: /Usuario/
-    public string Index()
+    public IActionResult Index()
     {
-        return "ñá ñé ñí ñó  ñú [] {} ()   Página inicial para usuarios.";
+        return View();
+        //return "ñá ñé ñí ñó  ñú [] {} ()   Página inicial para usuarios.";
     }
     //
     //
     // GET: /Usuario/Configuraciones/
-    public string Configuraciones()
+    public IActionResult Configuraciones()
     {
-        return "Ajustes de información de usuarios";
+        return View();
     }
+    //
+    //
+    // GET: /Usuario/Consulta/
+    public IActionResult Consulta(int id)
+    {
+        ViewData["id"] = id;
+        return View();
+    }
+    /*
     //
     //
     // GET: /Usuario/Consulta/
@@ -27,4 +37,6 @@ public class UsuarioController : Controller
     {
         return "ñá ñé ñí ñó  ñú [] {} (). Usuario con id=" + id;
     }
+    */
+
 }

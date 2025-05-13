@@ -5,6 +5,9 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddRazorPages();
 builder.Services.AddControllersWithViews();
 
+builder.Services.AddEndpointsApiExplorer();
+
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -25,4 +28,3 @@ app.MapControllerRoute(
     pattern: "{controller=Home}/{action=Index}/{id?}")
     .WithStaticAssets();
 app.Run();
-
