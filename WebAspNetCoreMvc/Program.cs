@@ -2,27 +2,35 @@
 using Microsoft.OpenApi.Models;
 
 
-
+//
+// Kind of project:
+// ASP.NET Core Web App (Model-View-Controller) + API
+// dotnet new mvc -n WebAspNetCoreMvc -f net9.0
+// fullstack project => WebApp And API 
+//
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddRazorPages();
 builder.Services.AddControllersWithViews();
+builder.Services.AddControllers(); // **
 
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(c =>
 {
      c.SwaggerDoc(
-        "v1", 
+        "v1.0.0", 
         new OpenApiInfo {
-            Title = "WebApp AND API - ASP.NET CORE MVC",
-            Description = "WebApp And API",
+            Title = "WebApp And API - ASP.NET CORE MVC",
+            Description = "WebApp And API With ASP.NET CORE MVC",
             Version = "Version 1.0.0"
         }
     );
 });
 
+// OpenAPI at https://aka.ms/aspnet/openapi
+// builder.Services.AddOpenApi();
 
 
 var app = builder.Build();
@@ -36,24 +44,27 @@ if (!app.Environment.IsDevelopment())
     // see https://aka.ms/aspnetcore-hsts.
     app.UseHsts();
 }
-
 if (app.Environment.IsDevelopment())
 {
-   app.UseSwagger();
-   app.UseSwaggerUI(c =>
-   {
-      c.SwaggerEndpoint("/swagger/v1/swagger.json", "WebApp ASP.NET CORE MVC Version 1.0.0");
-   });
+
+    // app.MapOpenApi(); // OPENAPI 
+
+    app.UseSwagger();
+    app.UseSwaggerUI(c =>
+    {
+        c.SwaggerEndpoint("/swagger/v1/swagger.json", "WebApp And API With ASP.NET CORE MVC");
+    });
 }
 
 app.UseHttpsRedirection();
-app.UseRouting();
 app.UseAuthorization();
+app.UseRouting();
 app.MapStaticAssets();
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Home}/{action=Index}/{id?}")
-    .WithStaticAssets();
+    pattern: "{controller=Home}/{action=Index}/{id?}"
+).WithStaticAssets();
+app.MapControllers(); // **
 
 // Minimal API
 app.MapGet("/isup", () => "WebApp Web ASP.NET CORE MVC: Is running !");

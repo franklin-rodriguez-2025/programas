@@ -1,0 +1,6 @@
+@proyectoSopaDeLetrasConASP_HostAddress = http://localhost:5058
+
+GET {{proyectoSopaDeLetrasConASP_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

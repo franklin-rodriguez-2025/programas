@@ -14,6 +14,6 @@ namespace WebAspNetCoreMvc.Contexto
         {
         }
 
-        public DbSet<UsuarioModel> Produtos { get; set; }
+        public DbSet<UsuarioModel> ContextoUsuario { get; set; }
     }
 }
