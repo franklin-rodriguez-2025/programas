@@ -12,7 +12,7 @@ public class UsuarioController : ControllerBase
 {
     private readonly ILogger<UsuarioController> _logger;
 
-    private readonly UsuarioService _usuarioService;
+    private readonly IUsuarioService _usuarioService;
 
     public UsuarioController(
         ILogger<UsuarioController> logger,

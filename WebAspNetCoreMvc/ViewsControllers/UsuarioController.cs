@@ -27,6 +27,14 @@ public class UsuarioController : Controller
     public IActionResult Consulta(int id)
     {
         ViewData["id"] = id;
+
+        var currentTime = DateTime.Now;
+
+        TimeSpan timeSpan = currentTime - new DateTime(1970, 1, 1);
+
+        ViewData["currentTime"] = currentTime;
+        ViewData["restaEntreDateTime"] = timeSpan;
+
         return View();
     }
     /*

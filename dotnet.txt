@@ -53,10 +53,11 @@ httprepl https://localhost:{PORT}
 dotnet dev-certs https --trust
 ### Agregar Certificados
 
-### Dependencies
+### Dependencies = 4
 dotnet add package Swashbuckle.AspNetCore
-dotnet add package Swashbuckle.AspNetCore --version 6.1.4
-dotnet add package Swashbuckle.AspNetCore --version 6.5.0
+dotnet add package Microsoft.EntityFrameworkCore.Tools
+dotnet add package Microsoft.EntityFrameworkCore.Design
+dotnet add package Pomelo.EntityFrameworkCore.MySql
 ### Dependencies
 
 ###

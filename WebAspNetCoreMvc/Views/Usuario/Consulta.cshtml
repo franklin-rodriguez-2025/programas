@@ -2,6 +2,7 @@
     ViewData["Title"] = "Consulta de Usuarios";
 
     var max = @ViewData["id"];
+
     if (max == null)
     {
         max = 0;
@@ -10,11 +11,48 @@
     {
         max = (int) @ViewData["id"]!;
     }
+
+
+
+    if( ViewData["currentTime"] != null )
+    {
+        var fechayhoraActual = Convert.ToDateTime(ViewData["currentTime"]);
+        ViewData["currentTime"] = fechayhoraActual.ToString("dd/MM/yyyy HH:mm:ss");
+    }
+    else
+    {
+        ViewData["currentTime"] = DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss");
+    }
+
+        //
+        // if ( I HAVE WORK AND 
+        //      WORK IS EQUAL TO MORE MONEY FOR ME AND
+        //      PEACE FOR ALL AND PEACE FOR ME AND
+        //      NO PROBLEMS FOR ME AND
+        //      ZERO PROBLEMS FOR ME AND
+        //      I HAVE TIME TO WORK AND
+        //      I HAVE TIME TO ENJOY MY LIFE AND
+        //     I HAVE TIME TO ENJOY MY WIFE AND
+        //     I HAVE TIME TO TAKE CARE OF MY FAMILY
+        // )
+        // {
+        //     I WILL WORK AND I WILL ENJOY MY LIFE AND
+        //     It's time to get a new DATE AND
+        //     I WILL GET MY WIFE !.
+        // }
+        // else
+        // {
+        //     I AM LOOKING FOR A NEW JOB TO GET MONEY AND 
+        //      TO GET WIFE AND TO GET MARRIED AND ENJOY MY LIFE.
+        // }
+        //
+
 }
 <div class="text-center">
     <h1 class="display-4">@ViewData["Title"]</h1>
     <div>
-        Usuario Seleccionado: @ViewData["id"]
+        <h3>Fecha y hora de consulta: @ViewData["currentTime"]</h3>
+        ID del Usuario: @ViewData["id"]
     </div>
 </div>
 
