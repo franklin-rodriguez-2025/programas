@@ -2,17 +2,17 @@
     using Microsoft.EntityFrameworkCore;
     using Microsoft.OpenApi.Models;
     using WebAspNetCoreMvc.Contexto;
-using WebAspNetCoreMvc.Services;
+    using WebAspNetCoreMvc.Services;
 
 
-//
-// Kind of project:
-// ASP.NET Core Web App (Model-View-Controller) + API
-// dotnet new mvc -n WebAspNetCoreMvc -f net9.0
-// fullstack project => WebApp And API 
-//
+    //
+    // Kind of project:
+    // ASP.NET Core Web App (Model-View-Controller) + API
+    // dotnet new mvc -n WebAspNetCoreMvc -f net9.0
+    // fullstack project => WebApp And API 
+    //
 
-var builder = WebApplication.CreateBuilder(args);
+    var builder = WebApplication.CreateBuilder(args);
 
     // Add services to the container.
     builder.Services.AddRazorPages();
@@ -38,14 +38,26 @@ var builder = WebApplication.CreateBuilder(args);
     // builder.Services.AddOpenApi();
 
 
+    // Leer cadena de conexión desde appsettings.json
+    var connectionString = builder.Configuration.GetConnectionString("MySqlConnection");
 
-    // Conexion MySQL
+
+    // Conexion MySQL con PomeloMySqlDriver
     builder.Services.AddDbContext<OurDbContext>(
         options => {
-            var connectionString = builder.Configuration.GetConnectionString("MySqlConnection");
-            options.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString));
+            options.UseMySql(
+                connectionString, 
+                ServerVersion.AutoDetect(connectionString)
+            );
         }
     );
+
+    // Registrar el DbContext con MySQL
+    builder.Services.AddDbContext<ApplicationDbContext>(
+        options => options.UseMySQL(connectionString)
+    );
+
+
 
 
 

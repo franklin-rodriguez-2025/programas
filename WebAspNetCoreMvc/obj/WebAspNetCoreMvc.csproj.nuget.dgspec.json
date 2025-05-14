@@ -52,7 +52,7 @@
             },
             "Microsoft.EntityFrameworkCore.Relational": {
               "target": "Package",
-              "version": "[8.0.14, )"
+              "version": "[9.0.5, )"
             },
             "Microsoft.EntityFrameworkCore.SqlServer": {
               "target": "Package",
@@ -65,6 +65,10 @@
               "version": "[9.0.5, )"
             },
             "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
+              "target": "Package",
+              "version": "[9.0.0, )"
+            },
+            "MySql.EntityFrameworkCore": {
               "target": "Package",
               "version": "[9.0.0, )"
             },

@@ -53,12 +53,20 @@ httprepl https://localhost:{PORT}
 dotnet dev-certs https --trust
 ### Agregar Certificados
 
-### Dependencies = 4
-dotnet add package Swashbuckle.AspNetCore
-dotnet add package Microsoft.EntityFrameworkCore.Tools
-dotnet add package Microsoft.EntityFrameworkCore.Design
-dotnet add package Pomelo.EntityFrameworkCore.MySql
+# if someoneElse changes the file .csproj then
+dotnet restore
+
+
+### Dependencies = 6
+dotnet add package Swashbuckle.AspNetCore                     --version x.x.xx
+dotnet add package Microsoft.EntityFrameworkCore.Tools        --version x.x.xx
+dotnet add package Microsoft.EntityFrameworkCore.Design       --version x.x.xx
+dotnet add package Microsoft.EntityFrameworkCore.Relational   --version x.x.xx
+dotnet add package MySql.EntityFrameworkCore                  --version x.x.xx
+dotnet add package Pomelo.EntityFrameworkCore.MySql           --version x.x.xx
 ### Dependencies
+
+
 
 ###
 ### Inside the project
