@@ -65,4 +65,19 @@ public class UsuarioController : ControllerBase
         }
         return CreatedAtAction( nameof(GetAsync), new { id = intId }, intId );
     }
+
+
+    // PUT: api/Usuario/27
+    [HttpPut("{id}")]
+    public async Task<IActionResult> UpdateAsync(int id, [FromBody] UsuarioModel usuarioModel)
+    {
+        if ( !ModelState.IsValid || usuarioModel == null )
+        {
+            _logger.LogWarning($"UsuarioController[UpdateAsync(usuarioModel)]: UsuarioModel id = {id} is null or has incomplete data.");
+            return BadRequest("UsuarioModel is null or has incomplete data.");
+        }
+        await _usuarioService.UpdateAsync(id, usuarioModel);
+        return NoContent();
+    }
+
 }

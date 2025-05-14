@@ -69,4 +69,41 @@ public class UsuarioService : IUsuarioService
             return null;
         }
     }
+
+    public async Task UpdateAsync(int id, UsuarioModel usuarioModel)
+    {
+        try
+        {
+            if( id != usuarioModel.Id )
+            {
+                _logger.LogWarning($"UsuarioService[UpdateAsync(id, usuarioModel)]: El id es diferente.");
+                return;
+            }
+
+            var itemFromDatabase = await GetAsync(id);
+
+            if( itemFromDatabase == null )
+            {
+                _logger.LogWarning($"UsuarioService[UpdateAsync(id, usuarioModel)]: No existe el usuario con id = {id}.");
+                return;
+            }
+
+            itemFromDatabase.Correo = usuarioModel.Correo;
+            itemFromDatabase.Contrasena = usuarioModel.Contrasena;
+            itemFromDatabase.Cumpleanos = usuarioModel.Cumpleanos;
+
+            itemFromDatabase.Altura = usuarioModel.Altura;
+            itemFromDatabase.Nombre = usuarioModel.Nombre;
+            itemFromDatabase.Apellido = usuarioModel.Apellido;
+
+            _context.Usuario.Update(itemFromDatabase);
+            await _context.SaveChangesAsync();
+        }
+        catch (Exception exception)
+        {
+            _logger.LogError($"Programa Falla Al Actualizar Datos !\n\n{exception.Message} !");
+            return;
+        }
+    }
+
 }

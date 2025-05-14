@@ -18,5 +18,6 @@
         public Task<UsuarioModel?> GetAsync(int id);
 
         public Task<int?> PostAsync(UsuarioModel usuarioModel);
-
-    }
+        
+        public Task UpdateAsync(int id, UsuarioModel usuarioModel);
+}
