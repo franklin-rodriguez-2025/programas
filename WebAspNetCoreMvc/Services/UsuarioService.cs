@@ -30,11 +30,12 @@ public class UsuarioService : IUsuarioService
     }
 
 
-    public async Task<UsuarioModel?> GetUsuarioAsync(int id)
+
+    public async Task<UsuarioModel?> GetAsync(int id)
     {
         try
         {
-            var usuario = await _context.ContextoUsuario.FindAsync(id);
+            var usuario = await _context.DbUsuario.FindAsync(id);
             if ( usuario == null )
             {
                 _logger.LogWarning($"UsuarioService[GetUsuarioAsync(id)]: Usuario con id = {id} no existe.");
@@ -45,6 +46,23 @@ public class UsuarioService : IUsuarioService
         catch (Exception ex)
         {
             _logger.LogError($"UsuarioService[GetUsuarioAsync(id)]: Error al obtener el usuario con id = {id}. Error: {ex.Message}");
+            return null;
+        }
+    }
+
+
+
+    public async Task<int?> PostAsync(UsuarioModel usuarioModel)
+    {
+        try
+        {
+            await _context.DbUsuario.AddAsync(usuarioModel);
+            await _context.SaveChangesAsync();
+            return usuarioModel.Id != 0 ? usuarioModel.Id : null;
+        }
+        catch (Exception ex)
+        {
+            _logger.LogError($"UsuarioService[PostAsync(usuarioModel)]: Error al guardar info del usuario. Error: {ex.Message}");
             return null;
         }
     }
