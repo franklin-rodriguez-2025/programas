@@ -10,9 +10,9 @@ alias l="clear;ls -logo --color=always"
 alias ll="clear;ls -l --color=always"
 alias delete="rm -f "
 alias tarfile='tar -cJf "${fechayhora}.tar.xz" $1'
-alias gs="git status"
-alias gol="git log --oneline -n 9"
-alias add="git add -A"
+alias gs="clear;git status"
+alias gol="clear;git log --oneline -n 9"
+alias add="clear;git add -A"
 
 
 

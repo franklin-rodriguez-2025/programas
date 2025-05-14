@@ -27,6 +27,15 @@ public class UsuarioController : ControllerBase
     }
 
 
+    // GET: api/Usuario
+    [HttpGet]
+    [ProducesResponseType(StatusCodes.Status200OK)]
+    public async Task<IActionResult> GetAllAsync()
+    {
+        var listaUsuarios = await _usuarioService.GetAllAsync();
+        return Ok(listaUsuarios);        
+    }
+
 
     // GET: api/Usuario/27
     [HttpGet("{id}")]
