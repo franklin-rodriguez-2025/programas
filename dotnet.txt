@@ -33,6 +33,9 @@ dotnet new webapi -controllers -n webapiaspnetcore -f net9.0
 # algo asi como postman pero en linea de comandos
 #
 dotnet tool install -g Microsoft.dotnet-httprepl
+
+dotnet tool install --global dotnet-ef
+
 #
 # se usa asi:
 #
@@ -66,6 +69,19 @@ dotnet add package MySql.EntityFrameworkCore                  --version x.x.xx
 dotnet add package Pomelo.EntityFrameworkCore.MySql           --version x.x.xx
 ### Dependencies
 
+
+# migraciones-1
+# realizar modificaciones en lugar de SQL
+dotnet tool install --global dotnet-ef
+dotnet tool update --global dotnet-ef
+
+# migraciones-2
+# Update Actualizar entityFrameWorkTool
+dotnet tool update --global dotnet-ef
+
+# migraciones-3
+dotnet ef migrations add InitialCreate
+dotnet ef database update
 
 
 ###

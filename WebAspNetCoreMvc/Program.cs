@@ -40,9 +40,17 @@
 
     // Leer cadena de conexión desde appsettings.json
     var connectionString = builder.Configuration.GetConnectionString("MySqlConnection");
+    if( string.IsNullOrEmpty(connectionString))
+    {
+        throw new Exception("Connection string is null in appsettings.json");
+    }
 
 
+    /*
+    //
     // Conexion MySQL con PomeloMySqlDriver
+    // driver no actualizado aún ...
+    //
     builder.Services.AddDbContext<OurDbContext>(
         options => {
             options.UseMySql(
@@ -51,9 +59,10 @@
             );
         }
     );
+    */
 
     // Registrar el DbContext con MySQL
-    builder.Services.AddDbContext<ApplicationDbContext>(
+    builder.Services.AddDbContext<OurDbContext>(
         options => options.UseMySQL(connectionString)
     );
 
