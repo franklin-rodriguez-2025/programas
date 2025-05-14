@@ -10,6 +10,9 @@ namespace WebAspNetCoreMvc.ApiControllers;
 [Route("api/[controller]")]
 public class UsuarioController : ControllerBase
 {
+    // "MySqlConnection": "server=127.0.0.1; port=3306; user=root; password=esUnSecreto; database=dbtemp;"      
+    // "MySqlConnection": "server=127.0.0.1; port=3306; user=root; password=esUnSecreto; database=dbtemp;"      
+
     private readonly ILogger<UsuarioController> _logger;
 
     private readonly IUsuarioService _usuarioService;

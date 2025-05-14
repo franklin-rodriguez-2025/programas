@@ -10,6 +10,9 @@ namespace WebAspNetCoreMvc.Services;
 
 public class UsuarioService : IUsuarioService
 {
+    // "MySqlConnection": "server=127.0.0.1; port=3306; user=root; password=esUnSecreto; database=dbtemp;"      
+    // "MySqlConnection": "server=127.0.0.1; port=3306; user=root; password=esUnSecreto; database=dbtemp;"      
+
     private readonly ILogger<UsuarioService> _logger;
 
     private readonly OurDbContext _context;
@@ -35,7 +38,7 @@ public class UsuarioService : IUsuarioService
     {
         try
         {
-            var usuario = await _context.DbUsuario.FindAsync(id);
+            var usuario = await _context.Usuario.FindAsync(id);
             if ( usuario == null )
             {
                 _logger.LogWarning($"UsuarioService[GetUsuarioAsync(id)]: Usuario con id = {id} no existe.");
@@ -56,7 +59,7 @@ public class UsuarioService : IUsuarioService
     {
         try
         {
-            await _context.DbUsuario.AddAsync(usuarioModel);
+            await _context.Usuario.AddAsync(usuarioModel);
             await _context.SaveChangesAsync();
             return usuarioModel.Id != 0 ? usuarioModel.Id : null;
         }
@@ -66,5 +69,4 @@ public class UsuarioService : IUsuarioService
             return null;
         }
     }
-
 }
