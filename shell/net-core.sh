@@ -75,6 +75,13 @@ dotnet add package Pomelo.EntityFrameworkCore.MySql           --version x.x.xx
 dotnet tool install --global dotnet-ef
 dotnet tool update --global dotnet-ef
 
+dotnet tool install -g Microsoft.dotnet-httprepl
+dotnet tool install --global dotnet-ef
+
+
+
+
+
 # migraciones-2
 # Update Actualizar entityFrameWorkTool
 dotnet tool update --global dotnet-ef

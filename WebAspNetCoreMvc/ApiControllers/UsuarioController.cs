@@ -30,10 +30,9 @@ public class UsuarioController : ControllerBase
 
     // GET: api/Usuario/27
     [HttpGet("{id}")]
-    //[ProducesResponseType(StatusCodes.Status404NotFound)]
-    //[ProducesResponseType(typeof(UsuarioModel), StatusCodes.Status200OK)]
-    //[ProducesResponseType(StatusCodes.Status500InternalServerError)]
-    //[Produces("application/json")]
+    [ProducesResponseType(StatusCodes.Status404NotFound)]
+    [ProducesResponseType(typeof(UsuarioModel), StatusCodes.Status200OK)]
+    [Produces("application/json")]
     public async Task<IActionResult> GetAsync(int id)
     {
         var infoUsuario = await _usuarioService.GetAsync(id);
