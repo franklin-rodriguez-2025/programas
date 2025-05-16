@@ -113,19 +113,41 @@ public class UsuarioService : IUsuarioService
 
     public async Task<List<UsuarioModel>> GetAllAsync()
     {
+        var msg = "UsuarioService[GetAllAsync()]: No hay usuarios.";
         try
         {
             var listaItems = await _context.Usuario.ToListAsync();
             if( listaItems == null )
             {
-                _logger.LogWarning($"UsuarioService[GetAllAsync()]: No hay usuarios.");
+                _logger.LogWarning(msg);
                 return new List<UsuarioModel>();
             }
             return listaItems;
         } catch (Exception exception)
         {
-            _logger.LogError($"UsuarioService[GetAllAsync()]: Error al obtener lista de usuarios.");
+            _logger.LogError(msg);
             return new List<UsuarioModel>();
+        }
+    }
+
+
+    public async Task DeleteAsync(int id)
+    {
+        try
+        {
+            var itemFromDatabase = await GetAsync(id);
+            if( itemFromDatabase == null )
+            {
+                _logger.LogWarning($"UsuarioService[DeleteAsync(id)]: No existe el usuario con id = {id}.");
+                return;
+            }
+            _context.Usuario.Remove(itemFromDatabase);
+            await _context.SaveChangesAsync();
+        }
+        catch( Exception exception)
+        {
+            _logger.LogError($"UsuarioService[DeleteAsync(id)]: Error al eliminar el usuario con id = {id}. Error: {exception.Message}");
+            return;
         }
     }
 }

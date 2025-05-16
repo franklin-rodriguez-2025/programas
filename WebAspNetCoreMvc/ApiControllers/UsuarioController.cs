@@ -88,4 +88,11 @@ public class UsuarioController : ControllerBase
         return NoContent();
     }
 
+    [HttpDelete("{id}")]
+    public async Task<IActionResult> DeleteAsync(int id)
+    {
+        await _usuarioService.DeleteAsync(id);
+        return NoContent();
+    }
+
 }

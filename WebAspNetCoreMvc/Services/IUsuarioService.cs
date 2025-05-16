@@ -22,4 +22,7 @@
         public Task<int?> PostAsync(UsuarioModel usuarioModel);
         
         public Task UpdateAsync(int id, UsuarioModel usuarioModel);
+
+        public Task DeleteAsync(int id);
+
 }

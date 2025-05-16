@@ -1,6 +1,0 @@
-@webapiaspnetcore_HostAddress = http://localhost:5226
-
-GET {{webapiaspnetcore_HostAddress}}/weatherforecast/
-Accept: application/json
-
-###
